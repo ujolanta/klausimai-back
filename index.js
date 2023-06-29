@@ -8,7 +8,7 @@ require("dotenv").config();
 
 const app = express();
 
-var cors = require("cors");
+//var cors = require("cors");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -22,9 +22,11 @@ mongoose
         console.log(err);
     });
 
-app.use(eventRoutes);
-app.use(userRoutes);
+//app.use(eventRoutes);
+//app.use(userRoutes);
 
+
+/*
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader(
@@ -34,5 +36,5 @@ app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
     next();
 });
-
+*/
 app.listen(8080);
