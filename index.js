@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 //const userRoutes = require("./api/routes/user");
 
 const mongoose = require("mongoose");
+
 require("dotenv").config();
 
 const app = express();
@@ -12,7 +13,7 @@ const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(cors());
+//app.use(cors());
 
 mongoose
     .connect(process.env.MONGO_CONNECTION, { useNewUrlParser: true })
@@ -22,7 +23,7 @@ mongoose
         console.log(err);
     });
 
-//app.use(eventRoutes);
+//app.use(questionRoutes);
 //app.use(userRoutes);
 
 
