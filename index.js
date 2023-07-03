@@ -1,7 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-//const eventRoutes = require("./api/routes/event");
-//const userRoutes = require("./api/routes/user");
+const questionRoutes = require("./api/routes/question");
+const anwersRoutes = require("./api/routes/anwers");
+const userRoutes = require("./api/routes/user");
 
 const mongoose = require("mongoose");
 
@@ -9,11 +10,11 @@ require("dotenv").config();
 
 const app = express();
 
-//var cors = require("cors");
+var cors = require("cors");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-//app.use(cors());
+app.use(cors());
 
 mongoose
     .connect(process.env.MONGO_CONNECTION, { useNewUrlParser: true })
@@ -23,11 +24,11 @@ mongoose
         console.log(err);
     });
 
-//app.use(questionRoutes);
-//app.use(userRoutes);
+app.use(questionRoutes);
+app.use(anwersRoutes);
+app.use(userRoutes);
 
 
-/*
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader(
@@ -37,5 +38,5 @@ app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
     next();
 });
-*/
+
 app.listen(8080);
