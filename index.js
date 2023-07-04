@@ -1,8 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const questionRoutes = require("./api/routes/question");
+const questionRouter = require("./api/routes/question");
 const anwersRoutes = require("./api/routes/anwers");
-const userRoutes = require("./api/routes/user");
+const userRouter = require("./api/routes/user");
 
 const mongoose = require("mongoose");
 
@@ -24,9 +24,9 @@ mongoose
         console.log(err);
     });
 
-app.use(questionRoutes);
+app.use(questionRouter);
 app.use(anwersRoutes);
-app.use(userRoutes);
+app.use(userRouter);
 
 
 app.use((req, res, next) => {
